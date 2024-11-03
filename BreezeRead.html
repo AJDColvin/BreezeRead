@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezeRead</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-layout">
+        <!-- Logo in the top-left corner -->
+        <div class="logo">
+            <span class="BR"> Breeze </span>
+            <img src="Icons/book_icon.svg" alt="BreezeRead Logo" class="book-icon">
+            <span class="BR"> Read </span>
+        </div>
+
+        <!-- Icons above the input box -->
+        <div class="icons">
+            <img src="Icons/question_icon.svg" class="icon" onclick="openPopup('popup-question')"></img>
+            <img src="Icons/i_icon.svg"class="icon" onclick="openPopup('popup-i')"></img>
+            <img src="Icons/gear_icon.svg" class="icon" onclick="openPopup('popup-settings')"></img>
+        </div>
+
+        <!-- Input box in the center -->
+        <div class="input-area" id="input">
+            <textarea placeholder="Enter text here..." id="textArea"></textarea>
+        </div>
+
+        <div class="text-to-read" id="text-to-read-area">
+            <p class="actual-text" id="the-text"></p>
+        </div>
+
+        <!-- Play button below the input box -->
+        <div class="play-button" onclick="readText()">
+            <img src="Icons/play_icon.svg" class="play-icon"> <!-- Play symbol -->
+        </div>
+    </div>
+
+    <!-- Popups for instructions, info, and settings -->
+    <div id="popup-question" class="popup" >
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup-question')">&times;</span>
+            <span>This is placeholder content for the Question button</span>
+        </div>
+    </div>
+
+    <div id="popup-i" class="popup" >
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup-i')">&times;</span>
+            <span>This is placeholder content for the Information button</span>
+        </div>
+    </div>
+
+    <div id="popup-settings" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('popup-settings')">&times;</span>
+            <span>This is placeholder content for the Settings button</span>
+        </div>
+    </div>
+
+
+    <script src="popups.js"></script>
+</body>
+</html>
