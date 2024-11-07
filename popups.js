@@ -1,3 +1,6 @@
+let running = false;
+
+//POPUP FUNCTIONS
 // Function to open a popup
 function openPopup(popupId) {
     document.getElementById(popupId).style.display = 'flex';
@@ -18,9 +21,18 @@ window.onclick = function(event) {
     });
 }
 
+//BREEZE READ FUNCTIONS
 // Breeze Read text
 function readText() {
+    if (!running){
+        running = true;
+    }
+    else {
+        running = false;
+    }
+    
     let text = document.getElementById("textArea").value;
+    let wpm = document.getElementById("wpm").value;
 
     document.getElementById("input").style.display = 'none';
     document.getElementById("text-to-read-area").style.display = 'flex';
@@ -28,15 +40,34 @@ function readText() {
 
     let words = text.split(" ");
 
-    printWords(words);
+    printWords(words, wpm);
 }
 
-function printWords(words) {
+function printWords(words, wpm) {
+    
+    if (!running) {
+        return
+    }
+
+    let interval = (60/wpm)*1000;
+
+    varyWpm = document.getElementById("vary-wpm").checked
+    if (varyWpm) {
+        interval = (words[0].length/4.7)*interval;
+    }
+    
     document.getElementById("the-text").innerHTML = `${words[0]}`;
 
-    words.shift();
+    words.shift(); //deletes first element of words
+    
 
     if (words.length) {
-        setTimeout(() => { printWords(words) }, 100);
+        setTimeout(() => { printWords(words, wpm) }, `${interval}`);
     }
+}
+
+function refreshPage() {
+    running = false;
+    document.getElementById("input").style.display = 'flex';
+    document.getElementById("text-to-read-area").style.display = 'none';
 }
