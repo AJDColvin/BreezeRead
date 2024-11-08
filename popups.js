@@ -34,12 +34,17 @@ function readText() {
     let text = document.getElementById("textArea").value;
     let wpm = document.getElementById("wpm").value;
 
+    if (!text) {
+        return
+    }
+
     document.getElementById("input").style.display = 'none';
     document.getElementById("text-to-read-area").style.display = 'flex';
 
 
     let words = text.split(" ");
 
+    
     printWords(words, wpm);
 }
 
@@ -56,7 +61,8 @@ function printWords(words, wpm) {
         interval = (words[0].length/4.7)*interval;
     }
     
-    document.getElementById("the-text").innerHTML = `${words[0]}`;
+    document.getElementById("the-text").innerHTML = `<span style="color: rgb(82, 82, 82);">${words[0]}</span>`;
+
 
     words.shift(); //deletes first element of words
     
