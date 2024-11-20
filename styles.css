@@ -16,20 +16,19 @@ body {
 }
 
 .page-layout {
-    /* position: relative; */
     height: 100%;
-    width: 400px;
+    width: 600px;
 }
 
 .book-icon {
-    height:40px;
+    height:70px;
     vertical-align: middle;
     margin-left: -3px;
 }
 
 .BR {
     font-family: "Chewy", Arial;
-    font-size: 30px;
+    font-size: 50px;
     color: #666666ff;
     vertical-align: middle;
 }
@@ -43,14 +42,14 @@ body {
 .icons {
     display: flex;
     justify-content: left;
-    margin-top: 50px; /* Adjusted for more spacing */
-    gap: 20px;
+    margin-top: 75px; /* Adjusted for more spacing */
+    gap: 50px;
     position: relative;
     top: 10%;
 }
 
 .icon {
-    height: 15px;
+    height: 25px;
     cursor: pointer;
     fill: rgb(255, 0, 0);
     transition: 250ms;
@@ -120,13 +119,13 @@ body {
 
 textarea {
     width: 100%;
-    height: 250px; /* Increase for more typing space */
+    height: 350px; /* Increase for more typing space */
     border-radius: 10px;
     border: 1px solid #ccc;
     padding: 10px;
-    font-size: 16px;
+    font-size: 20px;
     outline: none;
-    background-color: white;
+    background-color: rgb(251, 251, 251);
     resize: none;
     color: rgb(102, 102, 102)
 }
@@ -146,9 +145,9 @@ textarea:focus {
 
 
 .play-icon {
-    height: 40px;
+    height: 60px;
     cursor: pointer;
-    margin-left: 5px;
+    margin-left: 10px;
     transition: 250ms;
 }
 
@@ -158,9 +157,9 @@ textarea:focus {
 }
 
 .refresh-icon {
-    height: 30px;
+    height: 60px;
     cursor: pointer;
-    margin-right:10px;
+    margin-right:20px;
     transition: 250ms;
 }
 
@@ -176,12 +175,12 @@ textarea:focus {
     position: relative;
     top: 11%;
     width: 100%;
-    height: 250px; /* Increase for more typing space */
+    height: 350px; /* Increase for more typing space */
 }
 
 .actual-text {
     /* width: 100%;
     height: 250px; Increase for more typing space */
-    font-size: 25px;
+    font-size: 50px;
 
 }
