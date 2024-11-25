@@ -39,6 +39,14 @@ body {
     left: 10px;
 }
 
+.top-right {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    gap: 50px;
+}
+
 .icons {
     display: flex;
     justify-content: left;
