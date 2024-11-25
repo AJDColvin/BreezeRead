@@ -42,7 +42,8 @@ function readText() {
     document.getElementById("text-to-read-area").style.display = 'flex';
 
 
-    let words = text.split(" ");
+    let words = text.split(/(\[.*?\]|\s+)/).filter(part => part.trim() !== '');
+    console.log(words);
 
     
     printWords(words, wpm);
@@ -57,8 +58,22 @@ function printWords(words, wpm) {
     let interval = (60/wpm)*1000;
 
     varyWpm = document.getElementById("vary-wpm").checked
+    puncDelay = document.getElementById("punc-delay").checked
+
+    const shortPunc = /[,;-]/;
+    const longPunc = /[.:!?]/;
+
     if (varyWpm) {
         interval = (words[0].length/4.7)*interval;
+    }
+
+    if (puncDelay) {
+        if (shortPunc.test(words[0])) {
+            interval = interval + (interval/3);
+        }
+        else if (longPunc.test(words[0])) {
+            interval = interval + (interval);
+        }
     }
     
     document.getElementById("the-text").innerHTML = `<span style="color: rgb(82, 82, 82);">${words[0]}</span>`;

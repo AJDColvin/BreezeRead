@@ -44,8 +44,7 @@
 
     <!-- Popups for instructions, info, and settings -->
     <div id="popup-question" class="popup" >
-        <div class="popup-content">
-            <p class="close" onclick="closePopup('popup-question')">&times;</p>
+        <div class="popup-content-question">
             <p class="popup-text"> Instructions:</p>
             <p class="popup-text">Copy and Paste your block of text into the box.</p>
             <p class="popup-text">Press the play button and see how fast you can truly read!</p>
@@ -53,8 +52,7 @@
     </div>
 
     <div id="popup-i" class="popup" >
-        <div class="popup-content">
-            <p class="close" onclick="closePopup('popup-i')">&times;</p>
+        <div class="popup-content-info">
             <p class="popup-text"> BreezeRead harnesses the power of rapid serial visual presentation (RSVP) to enhance your reading speed.</p>
             <p class="popup-text">Instead of moving your eyes across the page, words are flashed in quick succession. This method minimises eye movement, increases focus, and therefore significantly improves your reading speed.</p>
             <p class="popup-text">Try it now!</p>
@@ -62,17 +60,22 @@
     </div>
 
     <div id="popup-settings" class="popup">
-        <div class="popup-content">
-            <p class="close" onclick="closePopup('popup-settings')">&times;</p>
+        <div class="popup-content-setting">
+
             
             <div class="popup-text">
-                <span>Reading Speed: </span>
+                <span>Reading Speed:&nbsp </span>
                 <input type="number" id="wpm" name="wpm" min="50" max="1000" step="50" value="400">
-                <span>wpm</span>
+                <span>&nbspwpm</span>
             </div>
             <div class="popup-text">
                 <span>Vary WPM for word length</span>
                 <input type="checkbox" class="vary-wpm" id="vary-wpm" name="vary-wpm">
+            </div>
+            <div class="popup-text">
+                <span>Add extra pause for punctuation</span>
+                <input type="checkbox" class="punc-delay" id="punc-delay" name="punc-delay">
+
             </div>
 
             
