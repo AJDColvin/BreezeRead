@@ -42,16 +42,27 @@ body {
 .top-right {
     display: flex;
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 60px;
-    gap: 50px;
+    gap: 60px;
 }
+
+.icon-top {
+    height: 30px;
+    cursor: pointer;
+    transition: 250ms;
+}
+.icon-top:hover {
+    opacity: 0.7;
+    transition: 250ms;
+}
+
 
 .icons {
     display: flex;
     justify-content: left;
     margin-top: 75px; /* Adjusted for more spacing */
-    gap: 50px;
+    gap: 40px;
     position: relative;
     top: 10%;
 }

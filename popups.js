@@ -92,3 +92,19 @@ function refreshPage() {
     document.getElementById("input").style.display = 'flex';
     document.getElementById("text-to-read-area").style.display = 'none';
 }
+
+// Get the text input element
+// const currText = document.getElementById('textArea');
+
+// Load saved text from local storage when the page loads
+window.onload = () => {
+    const savedText = localStorage.getItem('savedText');
+    if (savedText) {
+        textArea.value = savedText; // Populate the text box with the saved text
+    }
+};
+
+// Save the text to local storage whenever it changes
+textArea.addEventListener('input', () => {
+    localStorage.setItem('savedText', textArea.value);
+});
