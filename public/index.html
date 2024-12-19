@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreezeRead</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-layout">
+        <!-- Logo in the top-left corner -->
+        <div class="logo">
+            <span class="BR"> Breeze </span>
+            <img src="Icons/book_icon.svg" alt="BreezeRead Logo" class="book-icon">
+            <span class="BR"> Read </span>
+        </div>
+
+        <!-- Icons in the top-right corner -->
+        <div class="top-right">
+            <img src="Icons/question_icon.svg" class="icon-top" title="About" onclick="openPopup('popup-question')"></img>
+            <img src="Icons/i_icon.svg" class="icon-top" title="Info" onclick="openPopup('popup-i')"></img>
+            <img src="Icons/profile_icon.svg" class="icon-top" title="Profile" onclick="openPopup('popup-login')"></img>
+        </div>
+
+        <!-- Icons above the input box -->
+        <div class="icons">
+            <img src="Icons/gear_icon.svg" class="icon" title="Settings" onclick="openPopup('popup-settings')"></img>
+            <img src="Icons/save_icon.svg" class="icon" title="Save Text"></img>
+            <img src="Icons/history_icon.svg"class="icon" title="Text History"></img>
+        </div>
+
+        <!-- Input box in the center -->
+        <div class="input-area" id="input">
+            <textarea placeholder="Copy and Paste text here" id="textArea" spellcheck="false"></textarea>
+        </div>
+
+        <div class="text-to-read" id="text-to-read-area">
+            <p class="actual-text" id="the-text"></p>
+        </div>
+
+        <!-- Icons below the input box -->
+        <div class="icons-below">   
+            <img src="Icons/refresh_icon.svg" class="refresh-icon" onclick="refreshPage()">     
+            <img src="Icons/play_icon.svg" class="play-icon" onclick="readText()"> <!-- Play symbol -->
+        </div>
+
+    </div>
+
+    <!-- Popups for instructions, info, and settings -->
+    <div id="popup-question" class="popup" >
+        <div class="popup-content-question">
+            <p class="popup-text"> Instructions:</p>
+            <p class="popup-text">Copy and Paste your block of text into the box.</p>
+            <p class="popup-text">Press the play button and see how fast you can truly read!</p>
+        </div>
+    </div>
+
+    <div id="popup-i" class="popup" >
+        <div class="popup-content-info">
+            <p class="popup-text"> BreezeRead harnesses the power of rapid serial visual presentation (RSVP) to enhance your reading speed.</p>
+            <p class="popup-text">Instead of moving your eyes across the page, words are flashed in quick succession. This method minimises eye movement, increases focus, and therefore significantly improves your reading speed.</p>
+            <p class="popup-text">Try it now!</p>
+        </div>
+    </div>
+
+    <div id="popup-settings" class="popup">
+        <div class="popup-content-setting">
+            <div class="popup-text">
+                <span>Reading Speed:&nbsp </span>
+                <input type="number" id="wpm" name="wpm" min="50" max="1000" step="50" value="400">
+                <span>&nbspwpm</span>
+            </div>
+            <div class="popup-text">
+                <span>Vary WPM for word length</span>
+                <input type="checkbox" class="vary-wpm" id="vary-wpm" name="vary-wpm">
+            </div>
+            <div class="popup-text">
+                <span>Add extra pause for punctuation</span>
+                <input type="checkbox" class="punc-delay" id="punc-delay" name="punc-delay">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Popup -->
+    <div id="popup-login" class="popup">
+        <div class="popup-content-login">
+            <span class="popup-text">Login</span>
+            <div class="popup-text">
+                <span>Username: </span>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="popup-text">
+                <span>Password: </span>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="popup-text">
+                <button class="login-button" id="login" onclick="login()">Login</button>
+            </div>
+            <div class="popup-text">
+                <p class = "register-link" onclick="closePopup('popup-login');openPopup('popup-register')">Dont have an account? Register</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Popup -->
+    <div id="popup-register" class="popup">
+        <div class="popup-content-login">
+            <span class="popup-text">Register</span>
+            <div class="popup-text">
+                <span>Username: </span>
+                <input type="text" id="username" name="username">
+            </div>
+            <div class="popup-text">
+                <span>Password: </span>
+                <input type="password" id="password" name="password">
+            </div>
+            <div class="popup-text">
+                <button class="login-button" id="register" onclick="register()">Sign Up</button>
+            </div>
+            <div class="popup-text">
+                <p class = "back-to-login-link" onclick="closePopup('popup-register');openPopup('popup-login')">Already have an account? Login</p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="popups.js"></script>
+    <script src="login-popups.js"></script>
+
+</body>
+</html>
