@@ -2,7 +2,7 @@ async function login(){
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
 
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('http://breezereadbe-production.up.railway.app/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -24,7 +24,7 @@ async function register(){
     const password = document.getElementById('register-password').value;
     console.log("TEST")
 
-    const response = await fetch('http://localhost:3000/register', {
+    const response = await fetch('http://breezereadbe-production.up.railway.app/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -32,7 +32,6 @@ async function register(){
 
     const data = await response.json();
     alert(data.message);
-    // alert('TESTING');
     
 }
 
