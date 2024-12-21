@@ -22,7 +22,7 @@
         <div class="top-right">
             <img src="Icons/question_icon.svg" class="icon-top" title="About" onclick="openPopup('popup-question')"></img>
             <img src="Icons/i_icon.svg" class="icon-top" title="Info" onclick="openPopup('popup-i')"></img>
-            <img src="Icons/profile_icon.svg" class="icon-top" title="Profile" onclick="openPopup('popup-login')"></img>
+            <img src="Icons/profile_icon.svg" class="icon-top" title="Profile" onclick="checkLoggedIn()"></img>
         </div>
 
         <!-- Icons above the input box -->
@@ -124,11 +124,20 @@
             <div class="popup-text">
                 <p class = "back-to-login-link" onclick="closePopup('popup-register');openPopup('popup-login')">Already have an account? Login</p>
             </div>
-
         </div>
+    </div>
 
-        <!--- Already Logges In popup-->
-        
+    <!--- Already Logged In popup-->
+    <div id="popup-logged-in" class="popup">
+        <div class="popup-content-login">
+            <div class="popup-text">
+                <p>Logged in as:</p>
+                <p id="username_placeholder">username_placeholder</p>
+            </div>
+            <div class="popup-text">
+                <p class = "logout-link" onclick="logout()">Logout?</p>
+            </div>
+        </div>
     </div>
 
 
