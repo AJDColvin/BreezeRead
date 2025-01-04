@@ -70,4 +70,62 @@ function logout(){
 
 }
 
+async function saveText(){
+    const textContent = document.getElementById('textArea').value;
+    const token = localStorage.getItem('token');
+
+    if (!loggedIn) {
+        alert('Please log in or register to save your text.');
+        return;
+    }
+
+    const response = await fetch(`${apiBaseUrl}/save`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: token,
+        },
+        body: JSON.stringify({ textContent }),
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+        alert(data.message);
+    } else {
+        alert(data.message || 'Failed to save text.');
+    }
+
+
+};
+
+async function retrieveText(){
+    const token = localStorage.getItem('token'); // Retrieve the JWT token
+
+    if (!loggedIn) {
+        alert('Please log in to retrieve your last saved text.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`${apiBaseUrl}/retrieve`, {
+            method: 'GET',
+            headers: {
+                Authorization: token, // Include the JWT token
+            },
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            document.getElementById('textArea').value = data.textContent; // Populate the input box
+            alert('Loaded last saved text! Enjoy reading.');
+        } else {
+            alert(data.message || 'Failed to retrieve last saved text.');
+        }
+    } catch (error) {
+        console.error('Error retrieving last saved text:', error);
+        alert('An error occurred while retrieving your text. Please try again.');
+    }
+};
+
+
 
